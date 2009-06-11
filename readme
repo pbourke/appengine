@@ -1,0 +1,7 @@
+AppEngine Java API Stuff
+
+A collection of projects related to Google AppEngine for Java. Most use Spring in some fashion.
+
+appengine-blog
+--------------
+A simple blog application built to test the Google AppEngine for Java API
