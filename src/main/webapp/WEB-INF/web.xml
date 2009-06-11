@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+	<listener>
+	  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>GAE_Sample</servlet-name>
+		<servlet-class>com.pb.gaetest.GAE_SampleServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>spring-test</servlet-name>
+    	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+   	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>GAE_Sample</servlet-name>
+		<url-pattern>/gae_sample</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>spring-test</servlet-name>
+		<url-pattern>/spring-test/*</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>
