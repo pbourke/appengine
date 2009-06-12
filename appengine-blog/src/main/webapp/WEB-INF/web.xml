@@ -9,19 +9,9 @@
 	</listener>
 	
 	<servlet>
-		<servlet-name>GAE_Sample</servlet-name>
-		<servlet-class>com.pb.gaetest.GAE_SampleServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
 		<servlet-name>spring-test</servlet-name>
     	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
    	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>GAE_Sample</servlet-name>
-		<url-pattern>/gae_sample</url-pattern>
-	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>spring-test</servlet-name>

@@ -2,6 +2,16 @@ AppEngine Java API Stuff
 
 A collection of projects related to Google AppEngine for Java. Most use Spring in some fashion.
 
+Installation
+------------
+cp mvn-install.sh $YOUR_SDK_DIR
+cd $YOUR_SDK_DIR
+sh mvn-install.sh
+cd -
+cd appengine-blog
+mvn package
+
+
 appengine-blog
 --------------
 A simple blog application built to test the Google AppEngine for Java API
