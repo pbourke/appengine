@@ -59,30 +59,20 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
         <configuration>
-      <!--    <excludes>
-            <exclude>org.datanucleus:datanucleus-core</exclude>
-            <exclude>org.datanucleus:datanucleus-jpa</exclude>
-            <exclude>com.google.appengine:datanucleus-appengine</exclude>
-            <exclude>org.apache.geronimo.specs:geronimo-servlet_2.5_spec</exclude>
-            <exclude>org.apache.geronimo.specs:geronimo-jsp_2.1_spec</exclude>
-            <exclude>org.apache.geronimo.specs:geronimo-el_1.0_spec</exclude>
-            <exclude>org.apache.geronimo.specs:geronimo-jpa_3.0_spec</exclude>
-            <exclude>org.apache.geronimo.specs:geronimo-jta_1.1_spec</exclude>
-            <exclude>javax.jdo:jdo2-api</exclude>
-            <exclude>com.google.appengine:appengine-api</exclude>
-          </excludes>-->
           <downloadSources>true</downloadSources>
           <buildOutputDirectory>${basedir}/target/appengine-blog-1.0-SNAPSHOT/WEB-INF/classes</buildOutputDirectory>
           <wtpversion>1.5</wtpversion>
           <wtpapplicationxml>true</wtpapplicationxml>
-          <additionalProjectnatures>
-            <projectnature>com.google.gdt.eclipse.core.webAppNature</projectnature>
+          <projectnatures>
+            <projectnature>org.eclipse.jdt.core.javanature</projectnature>
             <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-          </additionalProjectnatures>
-          <additionalBuildcommands>
-            <buildcommand>com.google.gdt.eclipse.core.webAppProjectValidator</buildcommand>
+            <projectnature>org.maven.ide.eclipse.maven2Nature</projectnature>
+          </projectnatures>
+          <buildcommands>
+            <buildcommand>org.eclipse.jdt.core.javabuilder</buildcommand>
             <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
-          </additionalBuildcommands>
+            <buildcommand>org.maven.ide.eclipse.maven2Builder</buildcommand>
+          </buildcommands>
           <classpathContainers>
             <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
           </classpathContainers>
