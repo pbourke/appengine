@@ -1,3 +1,7 @@
 */target/*
 *.swp
 *.DS_Store
+*.project
+*.settings*
+*.classpath
+*.springBeans
