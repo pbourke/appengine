@@ -1,6 +1,5 @@
 package com.pb.gaetest;
 
-import java.text.DateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
