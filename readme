@@ -4,13 +4,43 @@ A collection of projects related to Google AppEngine for Java. Most use Spring i
 
 Installation
 ------------
-cp mvn-install.sh $YOUR_SDK_DIR
-cd $YOUR_SDK_DIR
-sh mvn-install.sh
-cd -
-cd appengine-blog
-mvn package
+1. Download the Google App Engine Java SDK and unzip to $SDK
 
+2. Install the Google App engine-specific jars into your local maven repo:
+
+   cp mvn-install.sh $SDK
+   cd $SDK
+   sh mvn-install.sh
+
+3. (Optional) Install the m2eclipse Eclipse plugin
+
+4. Check out this repository to $REPO
+
+5. cd $REPO
+   mvn package eclipse:m2eclipse
+
+6. Start Eclipse and create a new workspace at $WORKSPACE
+
+7. Create a new project from existing sources, choosing $REPO/appengine-blog
+   as the project source directory
+
+8. Create a new "Java Application" launch configuration as follows:
+   Name: "GAE dev server for appengine-blog"
+   Classpath tab: add $SDK/lib/appengine-tools-api.jar to the build path
+   Main tab: set Main class to com.google.appengine.tools.development.DevAppServerMain
+   Arguments tab: Program arguments = "${workspace_loc:appengine-blog}/target/appengine-blog-1.0-SNAPSHOT"
+                  Working directory: other = $SDK
+
+9. Project Properties > Builders > New > Maven Build
+   Auto Build Goals: war:exploded
+   Manual Build Goals: package
+   During a clean: clean
+   After a clean: package
+   [*] offline (optional, but speeds things up)
+   
+Now, every time a resource such as Spring config or a JSP page is changed, the war:exploded plugin will
+run to update the exploded war directory in the target folder. By running the launcher in debug mode,
+changes to Java classes will be reloaded automatically.
 
 appengine-blog
 --------------
