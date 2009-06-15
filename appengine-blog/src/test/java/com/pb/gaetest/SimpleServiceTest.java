@@ -28,7 +28,8 @@ public class SimpleServiceTest {
 	@Before
 	public void setUp() {
 	    ApiProxy.setEnvironmentForCurrentThread(new StubEnvironment());
-		ApiProxyLocalImpl apiProxyLocalImpl = new ApiProxyLocalImpl(new File(".")) {};
+	    final File localProxyDirectory = new File(System.getProperty("java.io.tmpdir"));
+		ApiProxyLocalImpl apiProxyLocalImpl = new ApiProxyLocalImpl(localProxyDirectory) {};
         apiProxyLocalImpl.setProperty(LocalDatastoreService.NO_STORAGE_PROPERTY,Boolean.TRUE.toString()); 	
 		ApiProxy.setDelegate(apiProxyLocalImpl);
     }
