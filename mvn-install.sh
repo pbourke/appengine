@@ -9,6 +9,21 @@ export SDK_VER="1.2.1"
 
 # User libraries (should be placed in WEB-INF/lib)
  
+
+mvn install:install-file -Dfile=${SDK_LIB}/impl/appengine-api-stubs.jar \
+  -DgroupId=com.google \
+  -DartifactId=appengine-api-stubs \
+  -Dversion=${SDK_VER} \
+  -Dpackaging=jar \
+  -DgeneratePom=true
+
+mvn install:install-file -Dfile=${SDK_LIB}/impl/appengine-local-runtime.jar \
+  -DgroupId=com.google \
+  -DartifactId=appengine-local-runtime \
+  -Dversion=${SDK_VER} \
+  -Dpackaging=jar \
+  -DgeneratePom=true
+
 mvn install:install-file -Dfile=${SDK_LIB}/user/appengine-api-1.0-sdk-${SDK_VER}.jar \
   -DgroupId=com.google \
   -DartifactId=appengine-api-1.0-sdk \

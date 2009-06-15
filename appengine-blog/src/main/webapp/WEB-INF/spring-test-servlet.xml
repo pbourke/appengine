@@ -11,6 +11,8 @@
         </property>
     </bean>
 
-	<bean id="controller" class="com.pb.gaetest.SpringTestController" />
+	<bean id="controller" class="com.pb.gaetest.SpringTestController">
+		<property name="simpleService" ref="simpleService" />
+	</bean>
 
 </beans>
