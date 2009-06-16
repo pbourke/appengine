@@ -6,11 +6,11 @@
 	<bean id="simpleService"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 		<property name="target">
-			<bean class="com.pb.gaetest.SimpleService">
+			<bean class="com.patrickbourke.appengine.SimpleService">
 				<property name="entityManager" ref="entityManager" />
 			</bean>
 		</property>
-		<property name="proxyInterfaces" value="com.pb.gaetest.SimpleServiceInterface" />
+		<property name="proxyInterfaces" value="com.patrickbourke.appengine.SimpleServiceInterface" />
 		<property name="transactionManager" ref="transactionManager" />
 		<property name="transactionAttributes">
 			<props>

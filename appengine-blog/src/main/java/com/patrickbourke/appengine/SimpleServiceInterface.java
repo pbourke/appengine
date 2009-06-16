@@ -1,4 +1,4 @@
-package com.pb.gaetest;
+package com.patrickbourke.appengine;
 
 import java.util.List;
 

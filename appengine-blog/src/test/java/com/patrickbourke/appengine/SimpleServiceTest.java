@@ -1,4 +1,4 @@
-package com.pb.gaetest;
+package com.patrickbourke.appengine;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;

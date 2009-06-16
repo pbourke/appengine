@@ -1,4 +1,4 @@
-package com.pb.gaetest;
+package com.patrickbourke.appengine;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class SimpleService implements SimpleServiceInterface {
 	}
 	
 	public List allItems() {
-		List resultList = entityManager.createQuery("SELECT e FROM com.pb.gaetest.SimpleEntity AS e").getResultList();
+		List resultList = entityManager.createQuery("SELECT e FROM com.patrickbourke.appengine.SimpleEntity AS e").getResultList();
 		resultList.size();
 		return resultList;
 	}
