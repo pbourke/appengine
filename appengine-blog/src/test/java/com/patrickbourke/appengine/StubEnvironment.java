@@ -1,8 +1,17 @@
 package com.patrickbourke.appengine;
 
+import java.io.File;
+
+import com.google.appengine.api.datastore.dev.LocalDatastoreService;
+import com.google.appengine.tools.development.ApiProxyLocalImpl;
 import com.google.apphosting.api.ApiProxy;
 
-class StubEnvironment implements ApiProxy.Environment {
+/**
+ * A Stub AppEngine Environment for JUnit tests.
+ *
+ * @author Patrick Bourke <pbourke@gmail.com>
+ */
+public class StubEnvironment implements ApiProxy.Environment {
 	public String getAppId() {
 		return "Unit Tests";
 	}
@@ -37,4 +46,15 @@ class StubEnvironment implements ApiProxy.Environment {
 	public boolean isAdmin() {
 		return false;
 	}
+
+	/**
+	 * Establishes the AppEngine test environment. Should be called in a JUnit setup method.
+	 */
+    public static void setUpAppEngineTest() {
+        ApiProxy.setEnvironmentForCurrentThread(new StubEnvironment());
+        final File localProxyDirectory = new File(System.getProperty("java.io.tmpdir"));
+    	ApiProxyLocalImpl apiProxyLocalImpl = new ApiProxyLocalImpl(localProxyDirectory) {};
+        apiProxyLocalImpl.setProperty(LocalDatastoreService.NO_STORAGE_PROPERTY,Boolean.TRUE.toString()); 	
+    	ApiProxy.setDelegate(apiProxyLocalImpl);
+    }
 }

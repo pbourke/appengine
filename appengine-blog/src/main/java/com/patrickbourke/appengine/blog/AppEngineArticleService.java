@@ -1,5 +1,7 @@
 package com.patrickbourke.appengine.blog;
 
+import javax.persistence.EntityManager;
+
 /**
  * Implementation of the BlogService which uses Google AppEngine storage service.
  *
@@ -7,6 +9,12 @@ package com.patrickbourke.appengine.blog;
  */
 public class AppEngineArticleService implements ArticleService {
 
+    private EntityManager entityManager;
+    
+    public void setEntityManager(final EntityManager em) {
+        entityManager = em;
+    }
+    
     public void addArticle(final Article a) {
         if ( a == null ) {
             throw new IllegalArgumentException("Article to be added cannot be null");

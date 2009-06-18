@@ -3,14 +3,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="simpleService"
-		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+	<bean id="articleService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 		<property name="target">
-			<bean class="com.patrickbourke.appengine.SimpleService">
+			<bean class="com.patrickbourke.appengine.blog.AppEngineArticleService">
 				<property name="entityManager" ref="entityManager" />
 			</bean>
 		</property>
-		<property name="proxyInterfaces" value="com.patrickbourke.appengine.SimpleServiceInterface" />
+		<property name="proxyInterfaces" value="com.patrickbourke.appengine.blog.ArticleService" />
 		<property name="transactionManager" ref="transactionManager" />
 		<property name="transactionAttributes">
 			<props>
