@@ -6,7 +6,7 @@ package com.patrickbourke.appengine.blog;
  * 
  * @author Patrick Bourke <pbourke@gmail.com>
  */
-public interface BlogService {
+public interface ArticleService {
     /**
      * Adds Article <tt>a</tt> to the blog's permanent storage.
      * 

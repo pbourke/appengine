@@ -5,7 +5,7 @@ package com.patrickbourke.appengine.blog;
  *
  * @author Patrick Bourke <pbourke@gmail.com>
  */
-public class AppEngineBlogService implements BlogService {
+public class AppEngineArticleService implements ArticleService {
 
     public void addArticle(final Article a) {
         if ( a == null ) {
