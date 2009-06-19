@@ -2,6 +2,8 @@ package com.patrickbourke.appengine.blog;
 
 import static org.junit.Assert.*;
 
+import java.security.SecureRandom;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,13 +33,15 @@ public class AppEngineArticleServiceTest {
     @Transactional
     @Test
     public void testAddArticleNewArticle() {
-        Article aBefore = new Article("some_id");
-        articleService.addArticle(aBefore);
-        
+        {
+            Article aBefore = new Article("some_id");
+            aBefore.setTitle("Title");
+            articleService.addArticle(aBefore);
+        }
         Article aAfter = articleService.findArticleById("some_id");
         assertNotNull(aAfter);
         assertEquals("some_id", aAfter.getId());
-        assertEquals(aBefore, aAfter);
+        assertEquals("Title", aAfter.getTitle());
     }
     
     @Transactional
@@ -49,10 +53,30 @@ public class AppEngineArticleServiceTest {
         // call add a second time
         articleService.addArticle(a);
     }
+
+    @Transactional
+    @Test
+    public void testAddArticleLotsOfText() {
+        StringBuffer textBuf = new StringBuffer(1000);
+        for ( int i = 0; i < 1000; i++ ) {
+            textBuf.append("a");
+        }
+        Article a = new Article("some_id");
+        a.setText( textBuf.toString() );
+        articleService.addArticle(a);
+    }
+
     
     @Transactional
     @Test(expected=IllegalArgumentException.class)
     public void testFindArticleNullArgument() {
         articleService.findArticleById(null);
+    }
+    
+    @Transactional
+    @Test
+    public void testFindArticleNonExistent() {
+        // attempt to retrieve a random article id (random long)
+        assertNull( articleService.findArticleById( "/" + Long.toString(new SecureRandom().nextLong()) ) );
     }
 }

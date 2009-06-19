@@ -22,6 +22,20 @@ public class ArticleTest {
         new Article("");
     }
 
+    @Test(expected=IllegalArgumentException.class)
+    public void testArticleConstructorRejectsInternalWhitespaceInIds() {
+        new Article("a b");
+    }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void testArticleConstructorRejectsIdsWhichStartWithADigit() {
+        new Article("0abc");
+    }
+
+    @Test
+    public void testArticleConstructorAcceptsSingleCharacterIds() {
+        assertNotNull( new Article("a") );
+    }
 
     @Test
     public void testCreatedDateIsNotNull() {
