@@ -11,13 +11,13 @@
 	</listener>
 	
 	<servlet>
-		<servlet-name>spring-test</servlet-name>
+		<servlet-name>admin</servlet-name>
     	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
    	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>spring-test</servlet-name>
-		<url-pattern>/spring-test/*</url-pattern>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>/admin/*</url-pattern>
 	</servlet-mapping>
 	
 	<welcome-file-list>
