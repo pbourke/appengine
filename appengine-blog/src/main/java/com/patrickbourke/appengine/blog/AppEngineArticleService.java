@@ -31,6 +31,11 @@ public class AppEngineArticleService implements ArticleService {
         if ( id == null ) {
             throw new IllegalArgumentException("id cannot be null");
         }
-        return entityManager.find(Article.class, id);
+        Article article = entityManager.find(Article.class, id);
+        if ( article != null ) {
+            // force initialization of the article text before returning
+            article.getText();
+        }
+        return article;
     }
 }

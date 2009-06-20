@@ -4,7 +4,9 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import com.google.appengine.api.datastore.Text;
 
@@ -23,7 +25,8 @@ public class Article {
     private Date created;
     
     private String title;
-    
+
+    @Enumerated
     private Text text;
 
     /**
@@ -69,8 +72,5 @@ public class Article {
     }
     public void setText(Text someText) {
         text = someText;
-    }
-    public void setText(String someText) {
-        text = new Text(someText);
     }
 }

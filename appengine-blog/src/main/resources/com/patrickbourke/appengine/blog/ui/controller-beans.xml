@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.patrickbourke.appengine.blog.ui.AddArticleController">
+		<property name="articleService" ref="articleService" />
+		<property name="formView" value="addArticleForm" />
+		<property name="successView" value="redirect" />
+		<property name="commandClass" value="com.patrickbourke.appengine.blog.Article" />
+	</bean>
+
+</beans>

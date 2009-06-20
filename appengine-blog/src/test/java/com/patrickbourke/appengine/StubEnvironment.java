@@ -51,6 +51,7 @@ public class StubEnvironment implements ApiProxy.Environment {
 	 * Establishes the AppEngine test environment. Should be called in a JUnit setup method.
 	 */
     public static void setUpAppEngineTest() {
+        System.setProperty("appengine.orm.disable.duplicate.emf.exception", "true");
         ApiProxy.setEnvironmentForCurrentThread(new StubEnvironment());
         final File localProxyDirectory = new File(System.getProperty("java.io.tmpdir"));
     	ApiProxyLocalImpl apiProxyLocalImpl = new ApiProxyLocalImpl(localProxyDirectory) {};

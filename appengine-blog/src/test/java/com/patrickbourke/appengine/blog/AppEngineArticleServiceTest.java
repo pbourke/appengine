@@ -1,6 +1,8 @@
 package com.patrickbourke.appengine.blog;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.security.SecureRandom;
 
@@ -12,6 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.appengine.api.datastore.Text;
 import com.patrickbourke.appengine.StubEnvironment;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -62,7 +65,7 @@ public class AppEngineArticleServiceTest {
             textBuf.append("a");
         }
         Article a = new Article("some_id");
-        a.setText( textBuf.toString() );
+        a.setText( new Text(textBuf.toString()) );
         articleService.addArticle(a);
     }
 
