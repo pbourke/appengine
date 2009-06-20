@@ -82,4 +82,38 @@ public class AppEngineArticleServiceTest {
         // attempt to retrieve a random article id (random long)
         assertNull( articleService.findArticleById( "/" + Long.toString(new SecureRandom().nextLong()) ) );
     }
+    
+    @Transactional
+    @Test
+    public void testFindLatestArticleOneItem() {
+        Article a = new Article("someId");
+        articleService.addArticle(a);
+        Article latest = articleService.findLatestArticle();
+        assertEquals( "someId", latest.getId() );
+    }
+    
+    @Transactional
+    @Test
+    public void testNoLatestArticleReturnsNull() {
+       assertNull( articleService.findLatestArticle() );        
+    }
+    
+    @Test
+    public void testReplaceLatestArticle() throws InterruptedException {
+        // not @Transactional because we are creating more than one of the
+        // same 'root' entity, which is unsupported by GAE transactions
+        Article a = new Article("first");
+        articleService.addArticle(a);
+        
+        // sleep to get a later creation date
+        Thread.sleep(1000);
+        
+        Article b = new Article("second");
+        articleService.addArticle(b);
+
+        Article latest = articleService.findLatestArticle();
+        
+        assertNotNull(latest);
+        assertEquals("second", latest.getId());
+    }
 }

@@ -23,4 +23,11 @@ public interface ArticleService {
      * @throws IllegalArgumentException if id is null
      */
     Article findArticleById(String id);
+
+    /**
+     * Returns the latest Article (by creation date) in the system.
+     * 
+     * @return null if there is no latest Article
+     */
+    Article findLatestArticle();
 }

@@ -10,4 +10,9 @@
 		<property name="commandClass" value="com.patrickbourke.appengine.blog.Article" />
 	</bean>
 
+	<bean id="indexPageController" class="com.patrickbourke.appengine.blog.ui.IndexPageController">
+		<property name="articleModelName" value="article" />
+		<property name="viewName" value="indexPage" />
+		<property name="articleService" ref="articleService" />
+	</bean>
 </beans>
