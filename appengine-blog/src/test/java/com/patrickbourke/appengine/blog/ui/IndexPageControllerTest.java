@@ -1,9 +1,8 @@
 package com.patrickbourke.appengine.blog.ui;
 
-import static org.springframework.test.web.ModelAndViewAssert.*;
-import static org.junit.Assert.*;
-
-import javax.servlet.http.HttpServletRequest;
+import static org.junit.Assert.assertEquals;
+import static org.springframework.test.web.ModelAndViewAssert.assertAndReturnModelAttributeOfType;
+import static org.springframework.test.web.ModelAndViewAssert.assertViewName;
 
 import org.junit.Before;
 import org.junit.Test;

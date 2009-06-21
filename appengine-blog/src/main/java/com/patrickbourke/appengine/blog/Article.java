@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 
 import com.google.appengine.api.datastore.Text;
 
@@ -33,10 +32,15 @@ public class Article {
      * articleId must be non-null and match the VALID_ID_PATTERN.
      */
     public Article(final String articleId) {
+        this();
         if ( articleId == null || !VALID_ID_PATTERN.matcher(articleId).matches() ) {
             throw new IllegalArgumentException("ArticleId cannot be null");
         }
         id = articleId;
+    }
+    
+    public Article() {
+        text = new Text("");
         created = new Date();
     }
     

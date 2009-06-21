@@ -15,7 +15,7 @@
 		<p><form:label path="title">Title</form:label><br/>
 		<form:input path="title"/></p>
 		<p><form:label path="text">Text</form:label><br/>
-		<form:textarea path="text"/></p>
+		<form:textarea path="text" cols="50" rows="10"/></p>
 		<p><input type="submit" /></p>
 	</form:form>
 </body>

@@ -11,8 +11,15 @@
 	</bean>
 
 	<bean id="indexPageController" class="com.patrickbourke.appengine.blog.ui.IndexPageController">
+		<property name="articleService" ref="articleService" />
 		<property name="articleModelName" value="article" />
 		<property name="viewName" value="indexPage" />
+	</bean>
+	
+	<bean id="getArticleController" class="com.patrickbourke.appengine.blog.ui.GetArticleController">
 		<property name="articleService" ref="articleService" />
+		<property name="modelName" value="article" />
+		<property name="articleViewName" value="indexPage" />
+		<property name="notFoundViewName" value="redirect:/" />
 	</bean>
 </beans>

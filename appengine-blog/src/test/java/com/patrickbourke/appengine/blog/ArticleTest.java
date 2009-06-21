@@ -38,10 +38,15 @@ public class ArticleTest {
     }
 
     @Test
+    public void testTextIsNotNull() {
+        assertNotNull( new Article("someId").getText() );
+    }
+
+    @Test
     public void testCreatedDateIsNotNull() {
         assertNotNull( new Article("someId").getCreated() );
     }
-    
+
     @Test
     public void testCreatedDateIsSetToNow() {
         Date now = new Date();
